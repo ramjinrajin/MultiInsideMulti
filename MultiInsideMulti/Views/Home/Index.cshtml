@@ -1,0 +1,70 @@
+﻿
+
+
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+
+
+        var MobilesData = [];
+
+
+        var MobileData1 = {
+            MobileNo: '32342',
+            Extn: '1212'
+        };
+
+        var MobileData2 = {
+            MobileNo: '9090',
+            Extn: '1212'
+        };
+
+        MobilesData.push(MobileData1);
+        MobilesData.push(MobileData2);
+
+
+        var TelephonesData = [{
+            TelephoneNo: 32342,
+            Extn: 1212
+        }, {
+            TelephoneNo: 32342,
+            Extn: 1212
+        }, {
+            TelephoneNo: 32342,
+            Extn: 1212
+        }];
+
+
+        var EmailsData = [{
+            EmailId: 'test@gmail.xom',
+            Comments: 'sdasd'
+        }, {
+            EmailId: 'test@gmail.xom',
+            Comments: 'asdasd'
+        }, {
+            EmailId: 'test@gmail.xom',
+            Comments: 'asdasd'
+        }];
+
+        var ContactPerson = {
+            Mobiles: MobilesData,
+            Telephones: TelephonesData,
+            Emails: EmailsData
+        }
+
+
+        var saveData = $.ajax({
+            type: 'POST',
+            url: "/Home/MultiContactPerson",
+            data: ContactPerson,
+            dataType: "text",
+            success: function (resultData) { alert("Save Complete") }
+        });
+        saveData.error(function () { alert("Something went wrong"); });
+
+        saveData();
+    });
+</script>
